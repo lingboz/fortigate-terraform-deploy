@@ -82,12 +82,14 @@ data "cloudinit_config" "config2" {
 
     })
   }
-
-  part {
+  dynamic "part" {
+  for_each = var.license_type == "payg" ? [] : [var.licenses[1]]
+  content {
     filename     = "license"
     content_type = "text/plain"
-    content      = var.license_format == "token" ? "LICENSE-TOKEN:${chomp(file("${var.licenses[1]}"))} INTERVAL:4 COUNT:4" : "${file("${var.licenses[1]}")}"
+    content = var.license_type == "token" ? format("LICENSE-TOKEN:%s INTERVAL:4 COUNT:4", chomp(file(part.value))) : file(part.value)
   }
+}
 }
 
 resource "aws_instance" "fgtpassive" {

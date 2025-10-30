@@ -293,7 +293,7 @@ variable "fgtami" {
 
 //  Existing SSH Key on the AWS 
 variable "keyname" {
-  default = "<AWS SSH KEY>"
+  default = "lzou-aws-keypair-315658800958-ireland"
 }
 
 // HTTPS access port
