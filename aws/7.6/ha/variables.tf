@@ -218,7 +218,8 @@ variable "fgtami" {
     },
     eu-west-1 = {
       x86 = {
-        payg = "ami-0142ee851bd65bd14"
+		payg = "ami-0fc0b0c365e29c7ce"
+        //payg = "ami-0142ee851bd65bd14"
         byol = "ami-0d8777d2d0215419b"
       }
     },

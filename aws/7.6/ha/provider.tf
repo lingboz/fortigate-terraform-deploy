@@ -8,5 +8,4 @@ resource "random_string" "random_name_post" {
 
 provider "aws" {
   region     = var.region
-  profile    = "AdministratorAccess-315658800958"
 }
